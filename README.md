@@ -14,6 +14,11 @@ The following is an explanation of the CICD that I have made :
 
 Finally this is the result of exposing the kubernetes service
 
+- Deployment 
+![image](https://user-images.githubusercontent.com/59553495/198096759-f0d325e9-8820-492a-a78b-926404b31624.png)
+- Service
+![image](https://user-images.githubusercontent.com/59553495/198096933-2f524a16-cb51-4f0c-b4c6-b93078552b19.png)
+
 - service golang --> https://service-golang.demo.apps.chakra.uno
 - service nodejs --> https://service-nodejs.demo.apps.chakra.uno
 
