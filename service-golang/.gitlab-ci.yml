@@ -1,0 +1,46 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  APP_NAME: service-golang
+  TAG_IMAGE: $CI_REGISTRY_IMAGE/$APP_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_IID
+  TAG_IMAGE_LATEST: $CI_REGISTRY_IMAGE/$APP_NAME:$CI_COMMIT_REF_NAME-latest
+  
+build_image:
+  stage: build
+  image: docker:20.10.10
+  services: 
+    - docker:20.10.10-dind   
+  script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker build -f ${APP_NAME}/Dockerfile -t $TAG_IMAGE .
+    - docker tag $TAG_IMAGE $TAG_IMAGE_LATEST
+    - docker push $TAG_IMAGE
+    - docker push $TAG_IMAGE_LATEST
+  only:
+    changes: 
+      - "service-golang/**/*"
+    refs:
+      - master
+
+deploy_Kubernetes:
+  stage: deploy
+  image: google/cloud-sdk
+  script:
+    - echo $GCP_SA_KEY > gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json 
+    - gcloud config set project $GCP_PROJECT_ID
+    - gcloud config set container/cluster $CLUSTER_NAME
+    - gcloud config set compute/zone us-central1-c
+    - gcloud container clusters get-credentials $CLUSTER_NAME --zone us-central1-c --project $GCP_PROJECT_ID
+    - sed -i "s/<VERSION>/${CI_COMMIT_REF_NAME}-${CI_PIPELINE_IID}/g" service-golang/k8s/deployment.yaml
+    - kubectl apply -f service-golang/k8s
+  only:
+    changes: 
+      - "service-golang/**/*"
+    refs:
+      - master
+      
+  
+

@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-nodejs
+  namespace: dev
+  labels:
+    app: service-nodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service-nodejs
+  template:
+    metadata:
+      labels:
+        app: service-nodejs
+    spec:
+      containers:
+      - name: service-nodejs
+        image: registry.gitlab.com/masuddhh/monorepo-ci/service-nodejs:<VERSION>
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          timeoutSeconds: 2
+
+
+

@@ -1,0 +1,23 @@
+stages:
+  - triggers
+
+trigger_service_golang:
+  stage: triggers
+  trigger:
+    include: service-golang/.gitlab-ci.yml
+  only:
+    changes:
+      - "service-golang/**/*"
+    refs:
+      - master
+
+trigger_service_nodejs:
+  stage: triggers
+  trigger:
+    include: service-nodejs/.gitlab-ci.yml
+  only:
+    changes:
+      - "service-nodejs/**/*"
+    refs:
+      - master
+

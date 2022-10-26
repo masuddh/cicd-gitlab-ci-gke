@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-golang
+  namespace: dev
+  labels:
+    app: service-golang
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service-golang
+  template:
+    metadata:
+      labels:
+        app: service-golang
+    spec:
+      containers:
+      - name: service-golang
+        image: registry.gitlab.com/masuddhh/monorepo-ci/service-golang:<VERSION>
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          timeoutSeconds: 2
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          timeoutSeconds: 2
+
+
