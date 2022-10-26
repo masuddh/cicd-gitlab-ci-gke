@@ -22,7 +22,9 @@ Finally this is the result of exposing the kubernetes service
 - service golang --> https://service-golang.demo.apps.chakra.uno
 - service nodejs --> https://service-nodejs.demo.apps.chakra.uno
 
+
+
 reference: 
-https://github.com/masterful/nodejs-hello-world
-https://blog.devgenius.io/go-docker-hello-world-f092ecf7cead
-https://blog.searce.com/gitlab-ci-cd-to-deploy-applications-on-gke-using-shared-runner-47f8c42817ac
+1.https://github.com/masterful/nodejs-hello-world
+2.https://blog.devgenius.io/go-docker-hello-world-f092ecf7cead
+3.https://blog.searce.com/gitlab-ci-cd-to-deploy-applications-on-gke-using-shared-runner-47f8c42817ac
