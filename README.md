@@ -13,6 +13,7 @@ The following is an explanation of the CICD that I have made :
 - for manifest kubernetes i just use deployment, service, and ingress because that is simple apps
 
 Finally this is the result of exposing the kubernetes service
-service golang --> https://service-golang.demo.apps.chakra.uno
-service nodejs --> https://service-nodejs.demo.apps.chakra.uno
+
+- service golang --> https://service-golang.demo.apps.chakra.uno
+- service nodejs --> https://service-nodejs.demo.apps.chakra.uno
 
