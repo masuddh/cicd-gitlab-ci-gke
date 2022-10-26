@@ -13,9 +13,9 @@ The following is an explanation of the CICD that I have made :
 - for manifest kubernetes i just use deployment, service, and ingress because that is simple apps
 
 Finally this is the result of exposing the kubernetes service
-
 - Deployment 
-![image](https://user-images.githubusercontent.com/59553495/198096759-f0d325e9-8820-492a-a78b-926404b31624.png)
+![image](https://user-images.githubusercontent.com/59553495/198097325-25e603e7-16ab-4d42-813d-660228194e45.png)
+
 - Service
 ![image](https://user-images.githubusercontent.com/59553495/198096933-2f524a16-cb51-4f0c-b4c6-b93078552b19.png)
 
