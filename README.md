@@ -19,8 +19,6 @@ Finally this is the result of exposing the kubernetes service
 - Service
 ![image](https://user-images.githubusercontent.com/59553495/198096933-2f524a16-cb51-4f0c-b4c6-b93078552b19.png)
 
-- service golang --> https://service-golang.demo.apps.chakra.uno
-- service nodejs --> https://service-nodejs.demo.apps.chakra.uno
 
 
 
