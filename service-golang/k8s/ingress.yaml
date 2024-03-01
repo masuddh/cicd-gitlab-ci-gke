@@ -7,7 +7,7 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - service-golang.demo.apps.chakra.uno
+    - service-golang.demo.example.com
     secretName: ssl-demo
   rules:
   - host: "service-golang.demo.example.com"
