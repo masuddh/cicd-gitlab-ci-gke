@@ -7,10 +7,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - service-nodejs.demo.apps.chakra.uno
+    - service-nodejs.demo.example.com
     secretName: ssl-demo
   rules:
-  - host: "service-nodejs.demo.apps.chakra.uno"
+  - host: "service-nodejs.demo.example.com"
     http:
       paths:
         - pathType: Prefix
