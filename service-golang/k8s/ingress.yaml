@@ -10,7 +10,7 @@ spec:
     - service-golang.demo.apps.chakra.uno
     secretName: ssl-demo
   rules:
-  - host: "service-golang.demo.apps.chakra.uno"
+  - host: "service-golang.demo.example.com"
     http:
       paths:
         - pathType: Prefix
